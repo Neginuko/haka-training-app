@@ -15,4 +15,27 @@ export const options: NextAuthOptions = {
         clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
     }),
   ],
+  callbacks: {
+    jwt: async ({ token, user, account, profile, isNewUser }) => {
+      if(user) {
+        token.user = user;
+        const u = user as any;
+        token.role = u.role;
+      }
+      if(account) {
+        token.accessToken = account.access_token;
+      }
+      return token;
+    },
+    session: async ({session, token}) => {
+      token.accessToken
+      return {
+        ...session,
+        user: {
+          ...session.user,
+          role: token.role,
+        }
+      }
+    }
+  }
 };
