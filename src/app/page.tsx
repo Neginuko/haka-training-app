@@ -1,11 +1,4 @@
-type ImageWrapperProps = {
-  src: '../../public/icon';
-  alt: 'Step-Up-Icon';
-  width: 60;
-  height: 60;
-};
-
-const Home = ({ src, alt, width, height }: ImageWrapperProps) => {
+const Home = () => {
   return (
     <body>
       <header className="intro-header">
