@@ -1,27 +1,170 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/*------------------------
+page.tsx   CSS
+-------------------------*/
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+h1 {
+  font-family: Mogra;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+/*--- header ---*/
+.intro-header {
+  height: 750px;
+  background-color: #dbff00;
+  background-image: repeating-linear-gradient(145deg, transparent, transparent 30px, rgba(0, 0, 0, 0.05) 0, rgba(0, 0, 0, 0.02) 32px);
+}
+
+.intro-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.intro-logo {
+  display: flex;
+  margin-top: 30px;
+  padding-left: 20px;
+}
+
+.intro-logo h1 {
+  display: inline-block;
+  color: #000;
+  font-family: Mogra;
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding-left: 10px;
+  padding-top: 5px;
+}
+
+.intro-login p {
+  color: #000;
+  font-size: 23px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  padding-top: 5px;
+  padding-right: 20px;
+  margin-top: 25px;
+}
+
+.intro-descriptions {
+  margin-top: 130px;
+  text-align: center;
+}
+
+.intro-descriptions h1 {
+  font-size: 60px;
+}
+
+.intro-descriptions h2 {
+  padding-top: 20px;
+  font-size: 40px;
+  font-family: Mogra;
+}
+
+.intro-descriptions .intro-title .title-buttom {
+  padding-left: 150px;
+}
+
+.intro-about {
+  margin-top: 80px;
+}
+
+.intro-about p {
+  font-size: 25px;
+  line-height: 40px;
+}
+
+.intro-about h2 {
+  padding-top: 40px;
+  font-size: 60px;
+}
+
+/*--- main ---*/
+main {
+  text-align: center;
+  margin-bottom: 150px;
+}
+
+main h1 {
+  font-size: 48px;
+  width: 45%;
+  margin: 0 auto;
+  margin-top: 120px;
+  margin-bottom: 10px;
+  position: relative;
+  padding: 5px;
+  border-bottom: 5px solid;
+  color: #f3f361;
+  font-weight: bold;
+  text-shadow: 3px 3px 0 #8f8e8e, -1px 1px 0 #8f8e8e, 1px -1px 0 #8f8e8e, -1px -1px 0 #8f8e8e;
+}
+
+main h1:before {
+  position: absolute;
+  bottom: -0.6rem;
+  left: 0rem;
+  right: 0rem;
+  border-bottom: 1px solid;
+  content: '';
+}
+
+main span {
+  font-size: 25px;
+}
+
+.item {
+  font-weight: 600;
+  margin-top: 40px;
+  line-height: 50px;
+}
+
+.item p {
+  font-size: 20px;
+}
+
+.item h3 {
+  padding-top: 20px;
+  font-size: 27px;
+  color: #f1ff94;
+  text-shadow: 3px 3px 0 #8f8e8e, -1px 1px 0 #8f8e8e, 1px -1px 0 #8f8e8e, -1px -1px 0 #8f8e8e;
+}
+
+/*- about-functions -*/
+.functions {
+  margin-top: 40px;
+  display: block;
+}
+
+.function {
+  width: 60%;
+  border: solid 2px #8f8e8e;
+  border-radius: 30px;
+  background-color: #f1ff94;
+  margin: 20px 0;
+  padding: 9px 0;
+  display: inline-block;
+}
+
+.function p {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+/*--- footer ---*/
+.intro-footer {
+  background-color: #dbff00;
+  height: 50px;
+}
+
+.intro-footer h2 {
+  text-align: center;
+  font-family: Mogra;
+  padding-top: 13px;
 }
