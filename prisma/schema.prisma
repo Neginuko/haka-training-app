@@ -54,7 +54,7 @@ model VerificationToken {
   token      String   @unique
   expires    DateTime
 
-  @@(unique[identifier, token])
+  @@unique[identifier, token]
 }
 
 model Training {
