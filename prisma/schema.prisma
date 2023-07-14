@@ -72,4 +72,5 @@ model Record {
   date       DateTime @default(now())
   trainingId String
   training   Training @relation(fields: [trainingId], references: [id], onDelete: Cascade)
+  doneTimes  Int
 }
