@@ -54,5 +54,20 @@ model VerificationToken {
   token      String   @unique
   expires    DateTime
 
-  @@unique([identifier, token])
+  @@(unique[identifier, token])
+}
+
+model Training {
+  id        String  @id @default(cuid())
+  name      String  @unique
+  load      Int?
+}
+
+model Record {
+  id          String    @id @default(cuid())
+  userId      String
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  date        DateTime  @default(now())
+  training    Training  @relation(fields: [trainingId], references: [id], onDelete: Cascade)
+  trainingId  String
 }
