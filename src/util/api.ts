@@ -86,6 +86,38 @@ export async function getNameFromTrainingId(trainingId: string) {
     return result?.name ?? "";
 }
 
+export async function getAverageOnDate(date: Date) {
+    const fdate = date.getFullYear() + "/" + date.getMonth() + "/" + date.getDate();
+
+    try {
+        const commits = await prisma.record.findMany({
+            select: {
+                id: true,
+                trainingId: true,
+                doneTimes: true,
+            }
+        });
+        interface fmt {
+            id: string,
+            trainingId: string,
+            trainingName: string,
+            doneTimes: number,
+        };
+        const data: fmt[] = [];
+        for (let item of commits) {
+            data.push({
+                id: item.id,
+                trainingId: item.trainingId,
+                trainingName: await getNameFromTrainingId(item.trainingId),
+                doneTimes: item.doneTimes,
+            });
+        }
+        return data;
+    } catch (error) {
+        return null;
+    }
+}
+
 export async function calcScores(userId: string) {
     
 }
