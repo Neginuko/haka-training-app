@@ -1,7 +1,8 @@
-import Link from 'next/link';
+// import Link from 'next/link';
 import Header from './header';
 import Footer from './footer';
 import Select from './select';
+import MostTraining from './functions/mostTraining';
 import '../app/globals.css';
 // import Calendar from './calendar';
 
@@ -11,11 +12,12 @@ const Home: React.FC = () => {
       {' '}
       <Header />
       <section>
+        <h1 className="home-title">Step-Up へようこそ！</h1>
         <Select />
       </section>
       <section>
-        <h1>2023 Commit</h1>
         {/* <Calendar commits={commits} /> */}
+        <MostTraining />
       </section>
       <Footer />
     </div>

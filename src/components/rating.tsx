@@ -7,6 +7,7 @@ const rating = () => {
     <div className="home">
       <Header />
       <section>
+        <h1 className="home-title">ランクレート</h1>
         <Select />
       </section>
       <section>Hello Rating</section>
