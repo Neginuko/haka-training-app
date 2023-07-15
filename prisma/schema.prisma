@@ -21,6 +21,7 @@ model User {
   accounts      Account[]
   sessions      Session[]
   Record        Record[]
+  Rating        Rating[]
 }
 
 model Account {
@@ -73,4 +74,12 @@ model Record {
   trainingId String
   training   Training @relation(fields: [trainingId], references: [id], onDelete: Cascade)
   doneTimes  Int
+}
+
+model Rating {
+  id     String   @id @default(cuid())
+  userId String
+  user   User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  date   DateTime @default(now())
+  rate   Int
 }
