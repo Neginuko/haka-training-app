@@ -202,12 +202,14 @@ export async function setRatingToUserIdOnDate(userId: string, date: Date) {
             item.doneTimes += value;
         }
         const rate = rating(allAvg, value, currentRate!.rate);
-        prisma.rating.create({
+        const res = prisma.rating.create({
             data: {
                 userId: userId,
                 rate: rate,
             }
         });
+        
+        return res;
     } catch (error) {}
 }
 
