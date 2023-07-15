@@ -1,19 +1,24 @@
-import Footer from './footer';
-import Header from './header';
-import Select from './select';
+import Footer from './functions/footer';
+import Header from './functions/header';
+import Select from './functions/select';
+import RatingGraph from './functions/ratingGraph';
+import '../app/globals.css';
 
-const rating = () => {
+const Rating: React.FC = () => {
   return (
     <div className="home">
+      {' '}
       <Header />
       <section>
         <h1 className="home-title">ランクレート</h1>
         <Select />
       </section>
-      <section>Hello Rating</section>
+      <section>
+        <RatingGraph />
+      </section>
       <Footer />
     </div>
   );
 };
 
-export default rating;
+export default Rating;
