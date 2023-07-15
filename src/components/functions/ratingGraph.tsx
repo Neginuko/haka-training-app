@@ -1,5 +1,5 @@
 const RatingGraph = () => {
-  return <div>Hello RatingGraph</div>;
+  return <div></div>;
 };
 
 export default RatingGraph;

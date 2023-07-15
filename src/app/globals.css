@@ -384,3 +384,65 @@ trainings.tsx   CSS
 .trainings {
   margin-top: 30px;
 }
+
+/* 全体のスタイル */
+.training-container {
+  font-family: Arial, sans-serif;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.training-item {
+  margin-bottom: 10px;
+}
+
+.training-label {
+  font-weight: bold;
+  color: #333;
+}
+
+.training-input {
+  margin-left: 10px;
+  padding: 5px;
+}
+
+.training-add-button,
+.training-add-confirm-button,
+.training-commit-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  color: #000000;
+  background-color: #ffea00;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.training-add-button:hover,
+.training-add-confirm-button:hover,
+.training-commit-button:hover {
+  background-color: #c7b800;
+}
+
+.training-add-container {
+  margin-top: 10px;
+}
+
+.training-committed-title {
+  margin-top: 30px;
+  color: #dbff00;
+  text-shadow: 3px 3px 0 #8f8e8e, -1px 1px 0 #8f8e8e, 1px -1px 0 #8f8e8e, -1px -1px 0 #8f8e8e;
+}
+
+.training-committed-list {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.training-committed-item {
+  margin-bottom: 5px;
+}
