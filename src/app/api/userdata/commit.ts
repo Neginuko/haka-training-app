@@ -13,8 +13,8 @@ export async function handler(request: NextApiRequest, response: NextApiResponse
             }
         });
 
-        return response.status(200).json({ data });
+        return response.status(200).json(data);
     } catch(error) {
-        return response.status(500).json({ error });
+        return response.status(500).send(error);
     }
 }
