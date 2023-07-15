@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { getCommitsFromUserId } from "@/util/api";
+import { getCommitsFromUserId } from "../../../util/api";
 
 export async function handler(request: NextApiRequest, response: NextApiResponse) {
     const req = JSON.parse(request.body);

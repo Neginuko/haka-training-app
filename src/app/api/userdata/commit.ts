@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { prisma } from "@/lib/prisma";
+import { prisma } from "../../../lib/prisma";
 
 export async function handler(request: NextApiRequest, response: NextApiResponse) {
     const req = JSON.parse(request.body);
