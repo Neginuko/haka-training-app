@@ -10,7 +10,7 @@ const Header = () => {
             <rect x="31" y="1" width="28" height="58" fill="black" stroke="#DBFF00" stroke-width="2" />
           </svg>
           {/* <Image src={src} alt={alt} width={width} height={height} /> */}
-          <h1>Step-Up</h1>
+          <h1 className="logo-title">Step-Up</h1>
         </div>
       </section>
 

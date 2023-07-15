@@ -254,6 +254,20 @@ Home.tsx   CSS
   background-color: rgba(241, 255, 158, 0.25);
 }
 
+.home-title {
+  margin-top: 37px;
+  text-align: center;
+  font-size: 30px;
+}
+
+/*------------------------
+header.tsx   CSS
+-------------------------*/
+.logo-title {
+  font-family: Mogra;
+  font-style: normal;
+}
+
 /*------------------------
 select.tsx   CSS
 -------------------------*/
@@ -261,14 +275,16 @@ select.tsx   CSS
   margin-top: 40px;
   display: flex;
   justify-content: space-between;
+  padding-bottom: 30px;
+  border-bottom: solid 5px #000000;
 }
 
 .select .item1 {
-  margin-left: 20px;
+  margin-left: 35px;
 }
 
 .select .item3 {
-  margin-right: 20px;
+  margin-right: 35px;
 }
 
 .select button {
@@ -284,4 +300,79 @@ select.tsx   CSS
 .select-link {
   text-decoration: none;
   color: #000000;
+}
+
+/*------------------------
+mostTraining.tsx   CSS
+-------------------------*/
+.mostTraining {
+  margin-bottom: 80px;
+}
+
+.mostTraining-title {
+  font-size: 28px;
+  width: 100%;
+  text-align: center;
+  margin-top: 120px;
+  padding: 5px;
+  color: #f3f361;
+  font-weight: bold;
+  text-shadow: 3px 3px 0 #8f8e8e, -1px 1px 0 #8f8e8e, 1px -1px 0 #8f8e8e, -1px -1px 0 #8f8e8e;
+}
+
+.ranking-1 h3 {
+  background-color: #ffe500;
+  width: 40px;
+  height: 35px;
+  border: solid 2px #000000;
+  border-radius: 50px;
+  margin: auto 0;
+  padding-top: 3.5px;
+  padding-left: 10px;
+  margin-left: 10px;
+}
+
+.ranking-2 h3 {
+  background-color: #d9d9d9;
+  width: 40px;
+  height: 35px;
+  border: solid 2px #000000;
+  border-radius: 50px;
+  margin: auto 0;
+  padding-top: 3px;
+  padding-left: 9.5px;
+  margin-left: 10px;
+}
+
+.ranking-3 h3 {
+  background-color: #ffc164;
+  width: 40px;
+  height: 35px;
+  border: solid 2px #000000;
+  border-radius: 50px;
+  margin: auto 0;
+  padding-top: 3px;
+  padding-left: 9.5px;
+  margin-left: 10px;
+}
+
+.training-ranking section {
+  margin: 40px auto;
+  display: flex;
+  width: 65%;
+  background-color: rgba(225, 255, 43, 0.3);
+  border: solid 3px #000000;
+  border-radius: 15px;
+}
+
+.training-ranking-data {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 10px;
+  font-weight: 600;
+  font-size: 20px;
+  width: 100%;
+}
+
+.count {
 }

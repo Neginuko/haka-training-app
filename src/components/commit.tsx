@@ -2,11 +2,12 @@ import Footer from './footer';
 import Header from './header';
 import Select from './select';
 
-const commit = () => {
+const Commit = () => {
   return (
     <div className="home">
       <Header />
       <section>
+        <h1 className="home-title">トレーニング</h1>
         <Select />
       </section>
       <section>Hello Commit</section>
@@ -15,4 +16,4 @@ const commit = () => {
   );
 };
 
-export default commit;
+export default Commit;
