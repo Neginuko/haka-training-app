@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 const Home = () => {
   return (
     <body>
@@ -11,8 +13,11 @@ const Home = () => {
             {/* <Image src={src} alt={alt} width={width} height={height} /> */}
             <h1>Step-Up</h1>
           </div>
+
           <div className="intro-login">
-            <p>ログイン</p>
+            <Link href="./test/login/" className="intro-link">
+              <p>ログイン</p>
+            </Link>
           </div>
         </section>
         {/*---- /intro-top ----*/}

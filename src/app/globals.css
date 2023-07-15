@@ -42,15 +42,23 @@ h1 {
   padding-top: 5px;
 }
 
+.intro-link {
+  text-decoration: none;
+}
+
 .intro-login p {
   color: #000;
-  font-size: 23px;
-  font-style: normal;
+  font-size: 20px;
   font-weight: 800;
-  line-height: normal;
   padding-top: 5px;
-  padding-right: 20px;
-  margin-top: 25px;
+  padding-right: 30px;
+  padding-top: 35px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.intro-login p:hover {
+  transform: scale(1.09);
 }
 
 .intro-descriptions {
@@ -167,4 +175,44 @@ main span {
   text-align: center;
   font-family: Mogra;
   padding-top: 13px;
+}
+
+/*------------------------
+login.tsx   CSS
+-------------------------*/
+.login-1,
+.login {
+  background-color: #dbff00;
+  background-image: repeating-linear-gradient(145deg, transparent, transparent 30px, rgba(0, 0, 0, 0.05) 0, rgba(0, 0, 0, 0.02) 32px);
+}
+
+.login-1 {
+  margin-top: 300px;
+}
+
+.login-1 div,
+.login {
+  margin-top: 70px;
+}
+
+.login-1 p,
+.login-1 code {
+  font-family: Mogra;
+  font-size: 100px;
+}
+
+.login-button {
+  border: solid 3px #000000;
+  border-radius: 40px;
+
+  padding: 5px 30px;
+  background-color: #f1ff9e;
+  text-shadow: #8f8e8e 1px 1px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.login-button:hover {
+  transform: scale(1.04);
+  font-weight: 700;
 }
