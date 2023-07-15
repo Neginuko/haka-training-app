@@ -6,9 +6,9 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url = env("POSTGRES_PRISMA_URL")
-  directUrl = env("POSTGRES_URL_NON_POOLING")
+  provider          = "postgresql"
+  url               = env("POSTGRES_PRISMA_URL")
+  directUrl         = env("POSTGRES_URL_NON_POOLING")
   shadowDatabaseUrl = env("POSTGRES_URL_NON_POOLING")
 }
 
@@ -20,21 +20,22 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
+  Record        Record[]
 }
 
 model Account {
-  id                 String  @id @default(cuid())
-  userId             String
-  type               String
-  provider           String
-  providerAccountId  String
-  refresh_token      String?  @db.Text
-  access_token       String?  @db.Text
-  expires_at         Int?
-  token_type         String?
-  scope              String?
-  id_token           String?  @db.Text
-  session_state      String?
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -55,4 +56,21 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+model Training {
+  id     String   @id @default(cuid())
+  name   String   @unique
+  load   Int?
+  Record Record[]
+}
+
+model Record {
+  id         String   @id @default(cuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  date       DateTime @default(now())
+  trainingId String
+  training   Training @relation(fields: [trainingId], references: [id], onDelete: Cascade)
+  doneTimes  Int
 }
