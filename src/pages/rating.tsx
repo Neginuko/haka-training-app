@@ -1,3 +1,3 @@
-import rating from '../components/rating';
+import Rating from '../components/rating';
 
-export default rating;
+export default Rating;

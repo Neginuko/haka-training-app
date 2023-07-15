@@ -12,6 +12,10 @@ h1 {
   font-family: Mogra;
 }
 
+:root {
+  view-transition-name: root;
+}
+
 /*--- header ---*/
 .intro-header {
   height: 750px;
@@ -374,5 +378,9 @@ mostTraining.tsx   CSS
   width: 100%;
 }
 
-.count {
+/*------------------------
+trainings.tsx   CSS
+-------------------------*/
+.trainings {
+  margin-top: 30px;
 }

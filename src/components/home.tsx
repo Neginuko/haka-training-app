@@ -1,14 +1,14 @@
 // import Link from 'next/link';
-import Header from './header';
-import Footer from './footer';
-import Select from './select';
+import Header from './functions/header';
+import Footer from './functions/footer';
+import Select from './functions/select';
 import MostTraining from './functions/mostTraining';
 import '../app/globals.css';
 // import Calendar from './calendar';
 
 const Home: React.FC = () => {
   return (
-    <div className="home">
+    <section className="home">
       {' '}
       <Header />
       <section>
@@ -20,7 +20,7 @@ const Home: React.FC = () => {
         <MostTraining />
       </section>
       <Footer />
-    </div>
+    </section>
   );
 };
 

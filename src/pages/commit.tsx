@@ -1,3 +1,3 @@
-import commit from '../components/commit';
+import Commit from '../components/commit';
 
-export default commit;
+export default Commit;
