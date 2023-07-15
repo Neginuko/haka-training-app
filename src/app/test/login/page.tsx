@@ -13,8 +13,8 @@ export default function Home() {
         <main>
           <div>
             <p>
-              Hello&nbsp;
-              <code className="font-mono font-bold">{session?.user?.name ?? 'guest'}</code>
+              Start&nbsp;
+              <code className="font-mono font-bold">{session?.user?.name ?? 'guest !!'}</code>
             </p>
             {!session && <LoginButton></LoginButton>}
             {session && <LogoutButton></LogoutButton>}
