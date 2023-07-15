@@ -1,7 +1,7 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import NextAuthProvider from '@/app/providers/NextAuth';
+import NextAuthProvider from './providers/NextAuth';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -15,6 +15,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <head>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mogra" />
+        <link rel="shortcut icon" href="favicon.ico" />
       </head>
       <body className={inter.className}>
         <NextAuthProvider>{children}</NextAuthProvider>

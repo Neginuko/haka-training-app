@@ -1,0 +1,61 @@
+.calendar {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow-x: auto;
+}
+
+.monthContainer {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.week {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.day {
+  flex-basis: calc(100% / 7);
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #e1e4e8;
+  position: relative;
+}
+
+.dayOfWeek {
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.month {
+  flex-basis: 100%;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.commitCount {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 50%;
+}
+
+.active {
+  background-color: #ebedf0;
+}

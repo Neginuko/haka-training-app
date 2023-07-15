@@ -174,7 +174,7 @@ main span {
 .intro-footer h2 {
   text-align: center;
   font-family: Mogra;
-  padding-top: 13px;
+  padding-top: 9px;
 }
 
 /*------------------------
@@ -215,4 +215,73 @@ login.tsx   CSS
 .login-button:hover {
   transform: scale(1.04);
   font-weight: 700;
+}
+
+/*------------------------
+Header.tsx   CSS
+-------------------------*/
+.header {
+  display: flex;
+  justify-content: space-between;
+  height: 90px;
+  background-color: #dbff00;
+  background-image: repeating-linear-gradient(145deg, transparent, transparent 30px, rgba(0, 0, 0, 0.05) 0, rgba(0, 0, 0, 0.02) 32px);
+}
+
+.header-logo {
+  display: flex;
+  margin-top: 20px;
+  padding-left: 30px;
+}
+
+.header-logo h1 {
+  padding-top: 5px;
+  padding-left: 10px;
+  font-family: Mogra;
+}
+
+.header-user-account {
+  padding-top: 29px;
+  padding-right: 30px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+/*------------------------
+Home.tsx   CSS
+-------------------------*/
+.home {
+  background-color: rgba(241, 255, 158, 0.25);
+}
+
+/*------------------------
+select.tsx   CSS
+-------------------------*/
+.select {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.select .item1 {
+  margin-left: 20px;
+}
+
+.select .item3 {
+  margin-right: 20px;
+}
+
+.select button {
+  box-shadow: 5px 5px #b6c26a;
+  padding: 10px 45px;
+  border-radius: 15px;
+  border: 2px solid #000;
+  background: rgba(225, 255, 43, 0.6);
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.select-link {
+  text-decoration: none;
+  color: #000000;
 }
