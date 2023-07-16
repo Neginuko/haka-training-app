@@ -2,7 +2,7 @@ import { signIn, signOut } from 'next-auth/react';
 
 export const LoginButton = () => {
   const handleSignIn = () => {
-    signIn();
+    signIn('google', { callbackUrl: '/home' }); // `/main` は遷移先のURLを指す
   };
 
   return (

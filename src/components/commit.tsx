@@ -1,3 +1,4 @@
+'use client';
 import Footer from './functions/footer';
 import Header from './functions/header';
 import Select from './functions/select';

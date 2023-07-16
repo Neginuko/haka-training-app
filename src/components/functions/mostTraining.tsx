@@ -9,7 +9,7 @@ const MostTraining = () => {
           <h3>1</h3>
           <div className="training-ranking-data">
             {' '}
-            <p className="training">ブルガリアンスクワット</p>
+            <p className="training">スクワット</p>
             <p className="count">30回</p>
           </div>
         </section>

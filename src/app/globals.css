@@ -12,6 +12,16 @@ h1 {
   font-family: Mogra;
 }
 
+/* これで、スクロールバー自体は存在するものの、見えなくなります */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Firefoxでは、以下のルールが必要です */
+body {
+  scrollbar-width: none;
+}
+
 :root {
   view-transition-name: root;
 }
@@ -202,7 +212,7 @@ login.tsx   CSS
 .login-1 p,
 .login-1 code {
   font-family: Mogra;
-  font-size: 100px;
+  font-size: 85px;
 }
 
 .login-button {
@@ -264,6 +274,25 @@ Home.tsx   CSS
   font-size: 30px;
 }
 
+.home-main p {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.currentYear {
+  font-size: 30px;
+  margin: 30px;
+  text-align: center;
+}
+
+.contribute {
+  background-color: #ffffff;
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
 /*------------------------
 header.tsx   CSS
 -------------------------*/
@@ -310,6 +339,7 @@ select.tsx   CSS
 mostTraining.tsx   CSS
 -------------------------*/
 .mostTraining {
+  margin-top: 30px;
   margin-bottom: 80px;
 }
 
@@ -317,7 +347,7 @@ mostTraining.tsx   CSS
   font-size: 28px;
   width: 100%;
   text-align: center;
-  margin-top: 120px;
+  margin-top: 55px;
   padding: 5px;
   color: #f3f361;
   font-weight: bold;
@@ -383,4 +413,197 @@ trainings.tsx   CSS
 -------------------------*/
 .trainings {
   margin-top: 30px;
+}
+
+/* 全体のスタイル */
+.training-container {
+  font-family: Arial, sans-serif;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.training-item {
+  margin-bottom: 10px;
+}
+
+.training-label {
+  font-weight: bold;
+  color: #333;
+}
+
+.training-input {
+  margin-left: 10px;
+  padding: 5px;
+}
+
+.training-add-button,
+.training-add-confirm-button,
+.training-commit-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  color: #000000;
+  background-color: #ffea00;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.training-add-button:hover,
+.training-add-confirm-button:hover,
+.training-commit-button:hover {
+  background-color: #c7b800;
+}
+
+.training-add-container {
+  margin-top: 10px;
+}
+
+.training-committed-title {
+  margin-top: 30px;
+  color: #dbff00;
+  text-shadow: 3px 3px 0 #8f8e8e, -1px 1px 0 #8f8e8e, 1px -1px 0 #8f8e8e, -1px -1px 0 #8f8e8e;
+}
+
+.training-committed-list {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.training-committed-item {
+  margin-bottom: 5px;
+}
+
+.training-commit-message {
+  margin-top: 1rem;
+  padding: 1rem;
+  font-size: 35px;
+  text-align: center;
+  color: #dbff00;
+  text-shadow: 2px 2px 0 #8f8e8e, -1px 1px 0 #8f8e8e, 1px -1px 0 #8f8e8e, -1px -1px 0 #8f8e8e;
+}
+
+.training-commit-error-message {
+  margin-top: 1rem;
+  padding: 1rem;
+  color: red;
+  font-weight: 700;
+  text-align: center;
+  font-size: 35px;
+}
+
+/*------------------------
+contributions.tsx   CSS
+-------------------------*/
+.contributions {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.contributions-wrapper {
+  overflow-x: auto;
+  overflow-y: visible;
+  display: flex;
+  position: relative;
+  z-index: 0;
+}
+
+.labels {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 18px;
+  margin-right: 5px;
+  padding-left: 20px;
+}
+
+.day-label,
+.month-label {
+  font-size: 2px;
+  text-align: center;
+}
+
+.grid-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.week {
+  display: flex;
+}
+
+.day {
+  width: 15px;
+  height: 15px;
+  margin: 2.2px;
+  position: relative;
+}
+
+.day:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 0;
+  top: 100%;
+  white-space: nowrap;
+  padding: 4px 8px;
+  color: #fff;
+  background-color: #333;
+  border-radius: 4px;
+  opacity: 0.75;
+  z-index: 100;
+  font-size: 10px;
+  line-height: 1;
+}
+
+.month-labels-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* Update this */
+  padding-right: 10px;
+  width: 100%; /* Add this */
+}
+
+.month-label-row {
+  height: 20px;
+}
+
+.month-label-container {
+  width: 15px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2.2px;
+}
+
+.month-label {
+  font-size: 12px;
+  text-align: center;
+}
+
+/*------------------------
+ratingGraph.tsx   CSS
+-------------------------*/
+.rating-text {
+  margin-top: 65px;
+  margin-bottom: 45px;
+  text-align: center;
+}
+
+.rating-text h1 {
+  font-size: 35px;
+}
+
+.rating-description {
+  margin-top: 30px;
+}
+
+.rating-description p {
+  padding-bottom: 30px;
 }
