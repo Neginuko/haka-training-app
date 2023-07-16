@@ -3,7 +3,7 @@
 const User = () => {
   return (
     <div>
-      <p>〇〇@gmail.com</p>
+      <p>Hello !!</p>
     </div>
   );
 };

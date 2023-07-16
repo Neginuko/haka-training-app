@@ -1,10 +1,16 @@
+'use client';
 import React, { useState } from 'react';
 import '../../app/globals.css';
+import axios from 'axios';
 
 type Training = {
   displayName: string; // for UI
   name: string; // for database
   count: string;
+};
+
+type TrainingIdMap = {
+  [key: string]: string;
 };
 
 const Trainings = () => {
@@ -25,6 +31,19 @@ const Trainings = () => {
     { displayName: 'カーフレイズ', name: 'callfraise', count: '' },
   ]);
 
+  const trainingIdByName: TrainingIdMap = {
+    abdominal: 'id1',
+    vAbdominal: 'id2',
+    pushups: 'id3',
+    back: 'id4',
+    squat: 'id5',
+    bulgarianSquat: 'id6',
+    frontLunge: 'id7',
+    sideLunge: 'id8',
+    hiplist: 'id9',
+    callfraise: 'id10',
+  };
+
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>, index: number) => {
     const newTrainings = [...trainings];
     newTrainings[index].count = event.target.value.replace(/[^0-9]+/i, '');
@@ -32,22 +51,36 @@ const Trainings = () => {
     setCommittedTrainings(newTrainings.filter((training) => training.count !== ''));
   };
 
-  const handleCommit = () => {
+  const handleCommit = async () => {
     if (committedTrainings.length === 0) {
       setCommitMessage('Please enter a number.');
       setIsError(true);
       return;
     }
 
-    // Commit is done. Clear the counts and print the committed trainings to the console.
+    for (const training of committedTrainings) {
+      try {
+        const response = await axios.post('/api/path-to-your-api', {
+          userId: 'your-user-id',
+          trainingId: trainingIdByName[training.name],
+          doneTimes: parseInt(training.count),
+        });
+
+        if (response.status === 200) {
+          console.log('Commit successful for training:', training.name);
+        } else {
+          console.error('Failed to commit for training:', training.name);
+        }
+      } catch (error) {
+        console.error('An error occurred while committing for training:', training.name);
+      }
+    }
+
     const newTrainings = trainings.map((training) => ({ ...training, count: '' }));
     setTrainings(newTrainings);
+    setCommittedTrainings([]);
     setCommitMessage('Commit is done.');
     setIsError(false);
-    console.log(
-      'Committed Trainings:',
-      committedTrainings.map((training) => ({ name: training.name, count: training.count }))
-    );
   };
 
   return (
