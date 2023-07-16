@@ -1,27 +1,609 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/*------------------------
+page.tsx   CSS
+-------------------------*/
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-family: Mogra;
+}
+
+/* これで、スクロールバー自体は存在するものの、見えなくなります */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Firefoxでは、以下のルールが必要です */
+body {
+  scrollbar-width: none;
+}
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  view-transition-name: root;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+/*--- header ---*/
+.intro-header {
+  height: 750px;
+  background-color: #dbff00;
+  background-image: repeating-linear-gradient(145deg, transparent, transparent 30px, rgba(0, 0, 0, 0.05) 0, rgba(0, 0, 0, 0.02) 32px);
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.intro-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.intro-logo {
+  display: flex;
+  margin-top: 30px;
+  padding-left: 20px;
+}
+
+.intro-logo h1 {
+  display: inline-block;
+  color: #000;
+  font-family: Mogra;
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding-left: 10px;
+  padding-top: 5px;
+}
+
+.intro-link {
+  text-decoration: none;
+}
+
+.intro-login p {
+  color: #000;
+  font-size: 20px;
+  font-weight: 800;
+  padding-top: 5px;
+  padding-right: 30px;
+  padding-top: 35px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.intro-login p:hover {
+  transform: scale(1.09);
+}
+
+.intro-descriptions {
+  margin-top: 130px;
+  text-align: center;
+}
+
+.intro-descriptions h1 {
+  font-size: 60px;
+}
+
+.intro-descriptions h2 {
+  padding-top: 20px;
+  font-size: 40px;
+  font-family: Mogra;
+}
+
+.intro-descriptions .intro-title .title-buttom {
+  padding-left: 150px;
+}
+
+.intro-about {
+  margin-top: 80px;
+}
+
+.intro-about p {
+  font-size: 25px;
+  line-height: 40px;
+}
+
+.intro-about h2 {
+  padding-top: 40px;
+  font-size: 60px;
+}
+
+/*--- main ---*/
+main {
+  text-align: center;
+  margin-bottom: 150px;
+}
+
+main h1 {
+  font-size: 48px;
+  width: 45%;
+  margin: 0 auto;
+  margin-top: 120px;
+  margin-bottom: 10px;
+  position: relative;
+  padding: 5px;
+  border-bottom: 5px solid;
+  color: #f3f361;
+  font-weight: bold;
+  text-shadow: 3px 3px 0 #8f8e8e, -1px 1px 0 #8f8e8e, 1px -1px 0 #8f8e8e, -1px -1px 0 #8f8e8e;
+}
+
+main h1:before {
+  position: absolute;
+  bottom: -0.6rem;
+  left: 0rem;
+  right: 0rem;
+  border-bottom: 1px solid;
+  content: '';
+}
+
+main span {
+  font-size: 25px;
+}
+
+.item {
+  font-weight: 600;
+  margin-top: 40px;
+  line-height: 50px;
+}
+
+.item p {
+  font-size: 20px;
+}
+
+.item h3 {
+  padding-top: 20px;
+  font-size: 27px;
+  color: #f1ff94;
+  text-shadow: 3px 3px 0 #8f8e8e, -1px 1px 0 #8f8e8e, 1px -1px 0 #8f8e8e, -1px -1px 0 #8f8e8e;
+}
+
+/*- about-functions -*/
+.functions {
+  margin-top: 40px;
+  display: block;
+}
+
+.function {
+  width: 60%;
+  border: solid 2px #8f8e8e;
+  border-radius: 30px;
+  background-color: #f1ff94;
+  margin: 20px 0;
+  padding: 9px 0;
+  display: inline-block;
+}
+
+.function p {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+/*--- footer ---*/
+.intro-footer {
+  background-color: #dbff00;
+  height: 50px;
+}
+
+.intro-footer h2 {
+  text-align: center;
+  font-family: Mogra;
+  padding-top: 9px;
+}
+
+/*------------------------
+login.tsx   CSS
+-------------------------*/
+.login-1,
+.login {
+  background-color: #dbff00;
+  background-image: repeating-linear-gradient(145deg, transparent, transparent 30px, rgba(0, 0, 0, 0.05) 0, rgba(0, 0, 0, 0.02) 32px);
+}
+
+.login-1 {
+  margin-top: 300px;
+}
+
+.login-1 div,
+.login {
+  margin-top: 70px;
+}
+
+.login-1 p,
+.login-1 code {
+  font-family: Mogra;
+  font-size: 85px;
+}
+
+.login-button {
+  border: solid 3px #000000;
+  border-radius: 40px;
+
+  padding: 5px 30px;
+  background-color: #f1ff9e;
+  text-shadow: #8f8e8e 1px 1px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.login-button:hover {
+  transform: scale(1.04);
+  font-weight: 700;
+}
+
+/*------------------------
+Header.tsx   CSS
+-------------------------*/
+.header {
+  display: flex;
+  justify-content: space-between;
+  height: 90px;
+  background-color: #dbff00;
+  background-image: repeating-linear-gradient(145deg, transparent, transparent 30px, rgba(0, 0, 0, 0.05) 0, rgba(0, 0, 0, 0.02) 32px);
+}
+
+.header-logo {
+  display: flex;
+  margin-top: 20px;
+  padding-left: 30px;
+}
+
+.header-logo h1 {
+  padding-top: 5px;
+  padding-left: 10px;
+  font-family: Mogra;
+}
+
+.header-user-account {
+  padding-top: 29px;
+  padding-right: 30px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+/*------------------------
+Home.tsx   CSS
+-------------------------*/
+.home {
+  background-color: rgba(241, 255, 158, 0.25);
+}
+
+.home-title {
+  margin-top: 37px;
+  text-align: center;
+  font-size: 30px;
+}
+
+.home-main p {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.currentYear {
+  font-size: 30px;
+  margin: 30px;
+  text-align: center;
+}
+
+.contribute {
+  background-color: #ffffff;
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/*------------------------
+header.tsx   CSS
+-------------------------*/
+.logo-title {
+  font-family: Mogra;
+  font-style: normal;
+}
+
+/*------------------------
+select.tsx   CSS
+-------------------------*/
+.select {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 30px;
+  border-bottom: solid 5px #000000;
+}
+
+.select .item1 {
+  margin-left: 35px;
+}
+
+.select .item3 {
+  margin-right: 35px;
+}
+
+.select button {
+  box-shadow: 5px 5px #b6c26a;
+  padding: 10px 45px;
+  border-radius: 15px;
+  border: 2px solid #000;
+  background: rgba(225, 255, 43, 0.6);
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.select-link {
+  text-decoration: none;
+  color: #000000;
+}
+
+/*------------------------
+mostTraining.tsx   CSS
+-------------------------*/
+.mostTraining {
+  margin-top: 30px;
+  margin-bottom: 80px;
+}
+
+.mostTraining-title {
+  font-size: 28px;
+  width: 100%;
+  text-align: center;
+  margin-top: 55px;
+  padding: 5px;
+  color: #f3f361;
+  font-weight: bold;
+  text-shadow: 3px 3px 0 #8f8e8e, -1px 1px 0 #8f8e8e, 1px -1px 0 #8f8e8e, -1px -1px 0 #8f8e8e;
+}
+
+.ranking-1 h3 {
+  background-color: #ffe500;
+  width: 40px;
+  height: 35px;
+  border: solid 2px #000000;
+  border-radius: 50px;
+  margin: auto 0;
+  padding-top: 3.5px;
+  padding-left: 10px;
+  margin-left: 10px;
+}
+
+.ranking-2 h3 {
+  background-color: #d9d9d9;
+  width: 40px;
+  height: 35px;
+  border: solid 2px #000000;
+  border-radius: 50px;
+  margin: auto 0;
+  padding-top: 3px;
+  padding-left: 9.5px;
+  margin-left: 10px;
+}
+
+.ranking-3 h3 {
+  background-color: #ffc164;
+  width: 40px;
+  height: 35px;
+  border: solid 2px #000000;
+  border-radius: 50px;
+  margin: auto 0;
+  padding-top: 3px;
+  padding-left: 9.5px;
+  margin-left: 10px;
+}
+
+.training-ranking section {
+  margin: 40px auto;
+  display: flex;
+  width: 65%;
+  background-color: rgba(225, 255, 43, 0.3);
+  border: solid 3px #000000;
+  border-radius: 15px;
+}
+
+.training-ranking-data {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 10px;
+  font-weight: 600;
+  font-size: 20px;
+  width: 100%;
+}
+
+/*------------------------
+trainings.tsx   CSS
+-------------------------*/
+.trainings {
+  margin-top: 30px;
+}
+
+/* 全体のスタイル */
+.training-container {
+  font-family: Arial, sans-serif;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.training-item {
+  margin-bottom: 10px;
+}
+
+.training-label {
+  font-weight: bold;
+  color: #333;
+}
+
+.training-input {
+  margin-left: 10px;
+  padding: 5px;
+}
+
+.training-add-button,
+.training-add-confirm-button,
+.training-commit-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  color: #000000;
+  background-color: #ffea00;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.training-add-button:hover,
+.training-add-confirm-button:hover,
+.training-commit-button:hover {
+  background-color: #c7b800;
+}
+
+.training-add-container {
+  margin-top: 10px;
+}
+
+.training-committed-title {
+  margin-top: 30px;
+  color: #dbff00;
+  text-shadow: 3px 3px 0 #8f8e8e, -1px 1px 0 #8f8e8e, 1px -1px 0 #8f8e8e, -1px -1px 0 #8f8e8e;
+}
+
+.training-committed-list {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.training-committed-item {
+  margin-bottom: 5px;
+}
+
+.training-commit-message {
+  margin-top: 1rem;
+  padding: 1rem;
+  font-size: 35px;
+  text-align: center;
+  color: #dbff00;
+  text-shadow: 2px 2px 0 #8f8e8e, -1px 1px 0 #8f8e8e, 1px -1px 0 #8f8e8e, -1px -1px 0 #8f8e8e;
+}
+
+.training-commit-error-message {
+  margin-top: 1rem;
+  padding: 1rem;
+  color: red;
+  font-weight: 700;
+  text-align: center;
+  font-size: 35px;
+}
+
+/*------------------------
+contributions.tsx   CSS
+-------------------------*/
+.contributions {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.contributions-wrapper {
+  overflow-x: auto;
+  overflow-y: visible;
+  display: flex;
+  position: relative;
+  z-index: 0;
+}
+
+.labels {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 18px;
+  margin-right: 5px;
+  padding-left: 20px;
+}
+
+.day-label,
+.month-label {
+  font-size: 2px;
+  text-align: center;
+}
+
+.grid-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.week {
+  display: flex;
+}
+
+.day {
+  width: 15px;
+  height: 15px;
+  margin: 2.2px;
+  position: relative;
+}
+
+.day:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 0;
+  top: 100%;
+  white-space: nowrap;
+  padding: 4px 8px;
+  color: #fff;
+  background-color: #333;
+  border-radius: 4px;
+  opacity: 0.75;
+  z-index: 100;
+  font-size: 10px;
+  line-height: 1;
+}
+
+.month-labels-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* Update this */
+  padding-right: 10px;
+  width: 100%; /* Add this */
+}
+
+.month-label-row {
+  height: 20px;
+}
+
+.month-label-container {
+  width: 15px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2.2px;
+}
+
+.month-label {
+  font-size: 12px;
+  text-align: center;
+}
+
+/*------------------------
+ratingGraph.tsx   CSS
+-------------------------*/
+.rating-text {
+  margin-top: 65px;
+  margin-bottom: 45px;
+  text-align: center;
+}
+
+.rating-text h1 {
+  font-size: 35px;
+}
+
+.rating-description {
+  margin-top: 30px;
+}
+
+.rating-description p {
+  padding-bottom: 30px;
 }
