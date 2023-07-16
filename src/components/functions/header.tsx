@@ -1,9 +1,18 @@
 import User from './user';
 import { useSession } from 'next-auth/react';
+import { useEffect, useState } from 'react';
 
 const Header = () => {
-  const { data: session } = useSession();
-  const username = session?.user?.name ?? 'Guest';
+  const { data: session, status } = useSession();
+  const [username, setUsername] = useState('Loading...');
+
+  useEffect(() => {
+    if (status === 'authenticated') {
+      setUsername(session?.user?.name ?? 'Guest');
+    } else if (status === 'unauthenticated') {
+      setUsername('Guest');
+    }
+  }, [status, session]);
 
   return (
     <header className="header">
@@ -13,7 +22,6 @@ const Header = () => {
             <rect x="1" y="30.8738" width="28" height="28" fill="black" stroke="#DBFF00" />
             <rect x="31" y="1" width="28" height="58" fill="black" stroke="#DBFF00" />
           </svg>
-          {/* <Image src={src} alt={alt} width={width} height={height} /> */}
           <h1 className="logo-title">Step-Up</h1>
         </div>
       </section>
