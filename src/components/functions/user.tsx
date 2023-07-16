@@ -1,7 +1,11 @@
-const User = () => {
+interface UserProps {
+  username: string;
+}
+
+const User: React.FC<UserProps> = ({ username }) => {
   return (
     <div>
-      <p>〇〇@gmail.com</p>
+      <p>{username}</p>
     </div>
   );
 };

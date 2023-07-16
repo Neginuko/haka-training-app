@@ -25,7 +25,7 @@ const Main: React.FC<MainProps> = ({ data }) => {
       </section>
       <section className="home-main">
         <h1 className="currentYear">{currentYear} 年 コミット数</h1>
-        <p>159 contributions in the last year</p>
+        <p>159 contributions in the this year</p>
         <div className="contribute">
           <Contributions />
           <div>

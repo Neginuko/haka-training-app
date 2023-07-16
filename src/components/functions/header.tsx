@@ -1,6 +1,10 @@
 import User from './user';
+import { useSession } from 'next-auth/react';
 
 const Header = () => {
+  const { data: session } = useSession();
+  const username = session?.user?.name ?? 'Guest';
+
   return (
     <header className="header">
       <section className="intro-top">
@@ -15,7 +19,7 @@ const Header = () => {
       </section>
 
       <div className="header-user-account">
-        <User />
+        <User username={username} />
       </div>
     </header>
   );
