@@ -13,12 +13,12 @@ const Home = () => {
             {/* <Image src={src} alt={alt} width={width} height={height} /> */}
             <h1>Step-Up</h1>
           </div>
-          {/* <div>
+          <div>
             <Link href="/home">
               {' '}
               <p>Home</p>
             </Link>
-          </div> */}
+          </div>
 
           <div className="intro-login">
             <Link href="./test/login/" className="intro-link">
