@@ -2,24 +2,27 @@ import React, { useState } from 'react';
 import '../../app/globals.css';
 
 type Training = {
-  name: string;
+  displayName: string; // for UI
+  name: string; // for database
   count: string;
 };
 
 const Trainings = () => {
-  const [newTrainingName, setNewTrainingName] = useState('');
-  const [showAddTraining, setShowAddTraining] = useState(false);
   const [committedTrainings, setCommittedTrainings] = useState<Training[]>([]);
+  const [commitMessage, setCommitMessage] = useState('');
+  const [isError, setIsError] = useState(false);
 
   const [trainings, setTrainings] = useState<Training[]>([
-    { name: '腹筋', count: '' },
-    { name: '腕立て', count: '' },
-    { name: '背筋', count: '' },
-    { name: 'ブルガリアンスクワット', count: '' },
-    { name: 'スクワット', count: '' },
-    { name: 'フロントランジ', count: '' },
-    { name: 'V字腹筋', count: '' },
-    { name: 'サイドランジ', count: '' },
+    { displayName: '腹筋', name: 'abdominal', count: '' },
+    { displayName: 'V字腹筋', name: 'vAbdominal', count: '' },
+    { displayName: '腕立て', name: 'pushups', count: '' },
+    { displayName: '背筋', name: 'back', count: '' },
+    { displayName: 'スクワット', name: 'squat', count: '' },
+    { displayName: 'ブルガリアンスクワット', name: 'bulgarianSquat', count: '' },
+    { displayName: 'フロントランジ', name: 'frontLunge', count: '' },
+    { displayName: 'サイドランジ', name: 'sideLunge', count: '' },
+    { displayName: 'ヒップリフト', name: 'hiplift', count: '' },
+    { displayName: 'カーフレイズ', name: 'callfraise', count: '' },
   ]);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>, index: number) => {
@@ -29,28 +32,22 @@ const Trainings = () => {
     setCommittedTrainings(newTrainings.filter((training) => training.count !== ''));
   };
 
-  const handleNewTrainingNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setNewTrainingName(event.target.value);
-  };
-
-  const handleShowAddTraining = () => {
-    setShowAddTraining(true);
-  };
-
-  const handleAddTraining = () => {
-    if (newTrainingName.trim() === '') return;
-
-    setTrainings([...trainings, { name: newTrainingName, count: '' }]);
-    setNewTrainingName('');
-    setShowAddTraining(false);
-  };
-
   const handleCommit = () => {
+    if (committedTrainings.length === 0) {
+      setCommitMessage('Please enter a number.');
+      setIsError(true);
+      return;
+    }
+
+    // Commit is done. Clear the counts and print the committed trainings to the console.
     const newTrainings = trainings.map((training) => ({ ...training, count: '' }));
     setTrainings(newTrainings);
-
-    // コンソールに確定したトレーニングを表示
-    console.log(committedTrainings);
+    setCommitMessage('Commit is done.');
+    setIsError(false);
+    console.log(
+      'Committed Trainings:',
+      committedTrainings.map((training) => ({ name: training.name, count: training.count }))
+    );
   };
 
   return (
@@ -58,36 +55,24 @@ const Trainings = () => {
       {trainings.map((training, index) => (
         <div key={index} className="training-item">
           <label className="training-label">
-            {training.name}：
+            {training.displayName}：
             <input type="text" className="training-input" maxLength={5} value={training.count} onChange={(e) => handleInputChange(e, index)} />回
           </label>
         </div>
       ))}
-      <button onClick={handleShowAddTraining} className="training-add-button">
-        新規トレーニング追加
-      </button>
-      {showAddTraining && (
-        <div className="training-add-container">
-          <label className="training-label">
-            新規トレーニング：
-            <input type="text" className="training-input" value={newTrainingName} onChange={handleNewTrainingNameChange} />
-            <button onClick={handleAddTraining} className="training-add-confirm-button">
-              追加
-            </button>
-          </label>
-        </div>
-      )}
+
       <h2 className="training-committed-title">Committed Trainings</h2>
       <ul className="training-committed-list">
         {committedTrainings.map((training, index) => (
           <li key={index} className="training-committed-item">
-            {training.name}: {training.count}回
+            {training.displayName}: {training.count}回
           </li>
         ))}
       </ul>
       <button onClick={handleCommit} className="training-commit-button">
         Commit
       </button>
+      {commitMessage && <div className={`training-commit-message ${isError ? 'training-commit-error-message' : ''}`}>{commitMessage}</div>}
     </div>
   );
 };

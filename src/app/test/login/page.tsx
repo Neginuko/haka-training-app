@@ -14,7 +14,7 @@ export default function Home() {
           <div>
             <p>
               Start&nbsp;
-              <code className="font-mono font-bold">{session?.user?.name ?? 'guest !!'}</code>
+              <code className="font-mono font-bold">{session?.user?.name ?? 'guest'}</code>
             </p>
             {!session && <LoginButton></LoginButton>}
             {session && <LogoutButton></LogoutButton>}
