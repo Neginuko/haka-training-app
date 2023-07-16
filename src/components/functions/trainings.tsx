@@ -60,8 +60,8 @@ const Trainings = () => {
 
     for (const training of committedTrainings) {
       try {
-        const response = await axios.post('/api/path-to-your-api', {
-          userId: 'your-user-id',
+        const response = await axios.post('/api/create-record', {
+          userId: 'your-user-id', // 実際には具体的なユーザーIDを使用する
           trainingId: trainingIdByName[training.name],
           doneTimes: parseInt(training.count),
         });
