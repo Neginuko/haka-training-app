@@ -1,4 +1,4 @@
-// import Link from 'next/link';
+'use client';
 import Header from './functions/header';
 import Footer from './functions/footer';
 import Select from './functions/select';
