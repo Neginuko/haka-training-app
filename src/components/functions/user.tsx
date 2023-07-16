@@ -1,12 +1,7 @@
-// src/app/compontnts/functions/user.tsx
-import { useSession } from 'next-auth/react';
-
 const User = () => {
-  const { data: session, status } = useSession();
-
   return (
     <div>
-      <p>{session?.user?.email ?? 'Guest'}</p>
+      <p>〇〇@gmail.com</p>
     </div>
   );
 };
