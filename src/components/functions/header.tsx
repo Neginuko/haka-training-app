@@ -1,6 +1,6 @@
-import User from './user';
+import User, { UserProps } from './user';
 
-const Header = () => {
+const Header = ({ session }: UserProps) => {
   return (
     <header className="header">
       <section className="intro-top">
@@ -15,7 +15,7 @@ const Header = () => {
       </section>
 
       <div className="header-user-account">
-        <User />
+        <User session={session} />
       </div>
     </header>
   );

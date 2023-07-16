@@ -1,23 +1,21 @@
-// import Link from 'next/link';
+import { GetServerSidePropsContext } from 'next';
 import Header from './functions/header';
 import Footer from './functions/footer';
 import Select from './functions/select';
 import MostTraining from './functions/mostTraining';
 import Contributions from './functions/contributions';
 import '../app/globals.css';
-// import Calendar from './calendar';
 
-interface MainProps {
-  data: any; // 'any'の代わりに、より具体的な型を使用できます。
+interface PageProps {
+  session: any; // 適切な型に置き換えてください
 }
 
-const Home: React.FC<MainProps> = () => {
+const Home: React.FC<PageProps> = ({ session }) => {
   const currentYear = new Date().getFullYear();
 
   return (
     <section className="home">
-      {' '}
-      <Header />
+      <Header session={session} />
       <section>
         <h1 className="home-title">Step-Up へようこそ！</h1>
         <Select />
@@ -37,5 +35,16 @@ const Home: React.FC<MainProps> = () => {
     </section>
   );
 };
+
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  // セッションを取得する処理
+  const session = {}; // 適切なセッションの取得方法に置き換えてください
+
+  return {
+    props: {
+      session,
+    },
+  };
+}
 
 export default Home;
