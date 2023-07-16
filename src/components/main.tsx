@@ -7,9 +7,14 @@ import Contributions from './functions/contributions';
 import '../app/globals.css';
 // import Calendar from './calendar';
 
-const Home: React.FC = () => {
+interface MainProps {
+  data: any; // 'any'の代わりに、より具体的な型を使用できます。
+}
+
+const Main: React.FC<MainProps> = ({ data }) => {
   const currentYear = new Date().getFullYear();
 
+  console.log(data);
   return (
     <section className="home">
       {' '}
@@ -34,4 +39,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default Main;
