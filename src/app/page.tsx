@@ -14,7 +14,7 @@ const Home = () => {
             <h1>Step-Up</h1>
           </div>
           <div>
-            <Link href="/main">
+            <Link href="/home">
               {' '}
               <p>Home</p>
             </Link>

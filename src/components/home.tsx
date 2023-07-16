@@ -11,10 +11,9 @@ interface MainProps {
   data: any; // 'any'の代わりに、より具体的な型を使用できます。
 }
 
-const Main: React.FC<MainProps> = ({ data }) => {
+const Home: React.FC<MainProps> = () => {
   const currentYear = new Date().getFullYear();
 
-  console.log(data);
   return (
     <section className="home">
       {' '}
@@ -39,4 +38,4 @@ const Main: React.FC<MainProps> = ({ data }) => {
   );
 };
 
-export default Main;
+export default Home;
